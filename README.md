@@ -1,5 +1,5 @@
 
-# Домашнее задание к занятию «ELK»
+# Домашнее задание к занятию «12-02.md Работа с данными (DDL/DML)» - Теплов Михаил 
 
 ### Инструкция по выполнению домашнего задания
 
@@ -17,67 +17,53 @@
 Желаем успехов в выполнении домашнего задания.
 
 ---
+Задание можно выполнить как в любом IDE, так и в командной строке.
 
-## Дополнительные ресурсы
+### Задание 1
+1.1. Поднимите чистый инстанс MySQL версии 8.0+. Можно использовать локальный сервер или контейнер Docker.
 
-При выполнении задания используйте дополнительные ресурсы:
-- [docker-compose elasticsearch + kibana](11-03/docker-compose.yaml);
-- [поднимаем elk в docker](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html);
-- [поднимаем elk в docker с filebeat и docker-логами](https://www.sarulabs.com/post/5/2019-08-12/sending-docker-logs-to-elasticsearch-and-kibana-with-filebeat.html);
-- [конфигурируем logstash](https://www.elastic.co/guide/en/logstash/7.17/configuration.html);
-- [плагины filter для logstash](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html);
-- [конфигурируем filebeat](https://www.elastic.co/guide/en/beats/libbeat/5.3/config-file-format.html);
-- [привязываем индексы из elastic в kibana](https://www.elastic.co/guide/en/kibana/7.17/index-patterns.html);
-- [как просматривать логи в kibana](https://www.elastic.co/guide/en/kibana/current/discover.html);
-- [решение ошибки increase vm.max_map_count elasticsearch](https://stackoverflow.com/questions/42889241/how-to-increase-vm-max-map-count).
+1.2. Создайте учётную запись sys_temp. 
 
-**Примечание**: если у вас недоступны официальные образы, можете найти альтернативные варианты в DockerHub, например, [такой](https://hub.docker.com/layers/bitnami/elasticsearch/7.17.13/images/sha256-8084adf6fa1cf24368337d7f62292081db721f4f05dcb01561a7c7e66806cc41?context=explore).
+1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 
-### Задание 1. Elasticsearch 
+1.4. Дайте все права для пользователя sys_temp. 
 
-Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный. 
+1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-*Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name*.
+1.6. Переподключитесь к базе данных от имени sys_temp.
 
+Для смены типа аутентификации с sha2 используйте запрос: 
+```sql
+ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```
+1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
 
+1.7. Восстановите дамп в базу данных.
+
+1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
+
+*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
 Скриншот:  
-![1 задание](https://github.com/mteplov/elk/blob/main/img/elk.png)
+![1 задание](https://github.com/mteplov/DDL/blob/main/img/4.png)
 
----
-
-### Задание 2. Kibana
-
-Установите и запустите Kibana.
-
-*Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty*.
-
+### Задание 2
+Составьте таблицу, используя любой текстовый редактор или Excel, в которой должно быть два столбца: в первом должны быть названия таблиц восстановленной базы, во втором названия первичных ключей этих таблиц. Пример: (скриншот/текст)
+```
+Название таблицы | Название первичного ключа
+customer         | customer_id
+```
 Скриншот:  
-![2 задание](https://github.com/mteplov/elk/blob/main/img/kibana.png)
----
-
-### Задание 3. Logstash
-
-Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch. 
-
-*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
-Скриншот:  
-![3 задание](https://github.com/mteplov/elk/blob/main/img/3.png)
----
-
-### Задание 4. Filebeat. 
-
-Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat. 
-
-*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
-Скриншот:  
-![4 задание](https://github.com/mteplov/elk/blob/main/img/4.png)
+![2 задание](https://github.com/mteplov/DDL/blob/main/img/4.png)
 
 ## Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
 
-### Задание 5*. Доставка данных 
+### Задание 3*
+3.1. Уберите у пользователя sys_temp права на внесение, изменение и удаление данных из базы sakila.
 
-Настройте поставку лога в Elasticsearch через Logstash и Filebeat любого другого сервиса , но не Nginx. 
-Для этого лог должен писаться на файловую систему, Logstash должен корректно его распарсить и разложить на поля. 
+3.2. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
-*Приведите скриншот интерфейса Kibana, на котором будет виден этот лог и напишите лог какого приложения отправляется.*
+*Результатом работы должны быть скриншоты обозначенных заданий, а также простыня со всеми запросами.*
+Скриншот:  
+![3 задание](https://github.com/mteplov/DDL/blob/main/img/4.png)
+
