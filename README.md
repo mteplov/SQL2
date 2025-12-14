@@ -62,11 +62,9 @@ master фиксирует все изменения в специальных л
 В заключении главная разница 
 Master–Slave — один пишет, остальные копируют
 Master–Slave проще и стабильнее
-
-
 Master–Master — оба пишут и синхронизируются между собой
 Master–Master сложнее, но даёт больше гибкости и отказоустойчивости
----
+
 
 ### Задание 2
 
@@ -75,20 +73,20 @@ Master–Master сложнее, но даёт больше гибкости и �
 *Приложите скриншоты конфигурации, выполнения работы: состояния и режимы работы серверов.*
 
 Скриншоты master:  
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_master/1.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_master/2.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_master/3.png)
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_master/1.png)
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_master/2.png)
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_master/3.png)
 
 Конфигурационный файл master:  
 [Master](https://github.com/mteplov/SQL1/blob/main/img/z2_master/mysqld.cnf)
 
 Скриншоты slave:  
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.1.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.2.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.3.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.4.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.5.png)
-![2 задание]((https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.6.png)
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.1.png)  
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.2.png)  
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.3.png)  
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.4.png)  
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.5.png)  
+![2 задание](https://github.com/mteplov/SQL1/blob/main/img/z2_slave/2.6.png)  
 
 
 Конфигурационный файл slave:  
@@ -108,25 +106,25 @@ Master–Master сложнее, но даёт больше гибкости и �
 *Приложите скриншоты конфигурации, выполнения работы: состояния и режимы работы серверов.*
 
 Скриншоты master1:  
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.1.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.2.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.3.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.4.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.5.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.6.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.7.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.1.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.2.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.3.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.4.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.5.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.6.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.7.png)
 
 Конфигурационный файл master1:  
 [Master1](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/mysqld.cnf)
 
 Скриншоты master2:  
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.1.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.2.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.3.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.4.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.5.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.6.png)
-![3 задание]((https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.7.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.1.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.2.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.3.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.4.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.5.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.6.png)
+![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.7.png)
 
 Конфигурационный файл master2:  
 [Master2](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/mysqld.cnf)
