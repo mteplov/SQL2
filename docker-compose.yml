@@ -1,0 +1,72 @@
+services:
+  users_shard1_master:
+    image: postgres:16
+    container_name: users_shard1_master
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users_shard1
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./sql/init_users_shard1.sql:/docker-entrypoint-initdb.d/init.sql
+
+  users_shard1_slave:
+    image: postgres:16
+    container_name: users_shard1_slave
+    environment:
+      POSTGRES_PASSWORD: password
+    depends_on:
+      - users_shard1_master
+    command:
+      - "postgres"
+      - "-c"
+      - "hot_standby=on"
+    ports:
+      - "5434:5432"
+
+  users_shard2_master:
+    image: postgres:16
+    container_name: users_shard2_master
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users_shard2
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./sql/init_users_shard2.sql:/docker-entrypoint-initdb.d/init.sql
+
+  users_shard2_slave:
+    image: postgres:16
+    container_name: users_shard2_slave
+    environment:
+      POSTGRES_PASSWORD: password
+    depends_on:
+      - users_shard2_master
+    command:
+      - "postgres"
+      - "-c"
+      - "hot_standby=on"
+    ports:
+      - "5436:5432"
+
+  books_master:
+    image: postgres:16
+    container_name: books_master
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: books
+    ports:
+      - "5437:5432"
+    volumes:
+      - ./sql/init_books.sql:/docker-entrypoint-initdb.d/init.sql
+
+  stores_master:
+    image: postgres:16
+    container_name: stores_master
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: stores
+    ports:
+      - "5438:5432"
+    volumes:
+      - ./sql/init_stores.sql:/docker-entrypoint-initdb.d/init.sql

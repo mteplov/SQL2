@@ -181,30 +181,34 @@ Master принимает все операции записи и чтения, 
 
 
 
+Горизонтальное шардирование пользователей
+
+``` sql
+-- Шард 1 (users_shard1)
+INSERT INTO users(id, name, email) VALUES (1000, 'Alice', 'alice@mail.com');
+SELECT COUNT(*) AS total_users FROM users WHERE id=1000;
+
+-- Шард 2 (users_shard2)
+INSERT INTO users(id, name, email) VALUES (15000000, 'Bob', 'bob@mail.com');
+SELECT COUNT(*) AS total_users FROM users WHERE id=15000000;
+```
+
+Вертикальное шардингирование (books)
+```sql
+INSERT INTO books(title, category) VALUES ('SQL Bible', 'DB');
+SELECT COUNT(*) AS total_books, category FROM books GROUP BY category;
+```
+Вертикальное шардингирование (stores)
+```sql
+INSERT INTO stores(name, city) VALUES ('Main Store', 'NY');
+SELECT city, COUNT(*) AS total_stores FROM stores GROUP BY city;
+```
 
 
-Скриншоты master1:  
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.1.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.2.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.3.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.4.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.5.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.6.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/3.7.png)
 
-Конфигурационный файл master1:  
-[Master1](https://github.com/mteplov/SQL1/blob/main/img/z3_master1/mysqld.cnf)
-
-Скриншоты master2:  
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.1.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.2.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.3.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.4.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.5.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.6.png)
-![3 задание](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/2.7.png)
-
-Конфигурационный файл master2:  
-[Master2](https://github.com/mteplov/SQL1/blob/main/img/z3_master2/mysqld.cnf)
+скрипты:  
+[Запуск выполнения](https://github.com/mteplov/SQL2/blob/main/start.sh)
+[Удаление скрипта](https://github.com/mteplov/SQL2/blob/main/stop.sh)
+[Конфиг docker](https://github.com/mteplov/SQL2/blob/main/docker-compose.yml)
 
 
